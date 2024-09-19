@@ -45,7 +45,7 @@
           <p class='lg:text-lg opacity-90 my-4'>{@html config.home_description}</p>
           <div class='flex gap-4 mt-1'>
             <Button variant='default' size='lg' href='/getting-started'>立刻体验</Button>
-            <Button variant='ghost' size='lg' href={config.repo_url}>GitHub</Button>
+            <Button variant='ghost' size='lg' href={config.repo_url} target='_blank'>GitHub</Button>
           </div>
         </div>
 
