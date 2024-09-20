@@ -20,7 +20,7 @@
 <div class="parallax-container">
   <Header isHero={true} />
 
-  <div class='parallax-group h-[140vh] lg:min-h-[1700px]'
+  <div class='parallax-group h-[140vh] lg:min-h-[1700px] xl:min-h-[2400px]'
   class:contain-strict={!isSafari}
   class:contain-layout={isSafari}>
     <div class="parallax-layer" style="--parallax-depth: 8;--image-position: 70%">

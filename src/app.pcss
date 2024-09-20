@@ -1,3 +1,10 @@
+.container {
+	padding: 1.5rem;
+}
+.\!container {
+	padding: 1.5rem !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -55,6 +62,22 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+@media (min-width: 768px) {
+	.container {max-width: calc(100% - 64px);}
+}
+@media (min-width: 1280px) {
+	.container {max-width: 1200px;}
+	.\!container {max-width: 1200px !important;}
+}
+@media (min-width: 1500px) {
+	.container {max-width: 1260px;}
+	.\!container {max-width: 1260px !important;}
+}
+@media (max-width: 768px){
+	.container {max-width: 100%;}
 }
 
 
