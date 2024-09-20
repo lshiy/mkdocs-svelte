@@ -59,7 +59,20 @@ const config: Config = {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/typography')],
+	plugins: [
+		require('@tailwindcss/typography'),
+		function ({ addUtilities }) {
+      const newUtilities = {
+        '.pb-safe': {
+          paddingBottom: 'constant(safe-area-inset-bottom)',
+					// @ts-expect-error 兼容需要
+          paddingBottom: 'env(safe-area-inset-bottom)',
+        }
+      };
+
+      addUtilities(newUtilities);
+    }
+	],
 };
 
 export default config;

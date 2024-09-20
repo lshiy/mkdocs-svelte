@@ -45,7 +45,7 @@
     </div>
     
     <div class='parallax-layer parallax-blend'></div>
-    <div class="sticky-content">
+    <div class="sticky-content max-sm:pb-safe">
       <div class='w-full container relative py-10 mx-auto'>
         <div class='w-full max-w-lg max-sm:pb-4 
         flex flex-col shadow-black text-white'>
