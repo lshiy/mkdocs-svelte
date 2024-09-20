@@ -37,7 +37,7 @@
 
 <main class='flex items-stretch justify-between w-full
 max-w-[1420px] mx-auto px-6'>
-  <aside class='shrink-0 w-full pr-6 max-w-[280px] pt-10'>
+  <aside class='shrink-0 w-full pr-6 max-w-[280px] pt-10 max-sm:hidden'>
     <Sidebar pageTree={nav} routeId='{data.path}.md' />
     <!-- <ul class='text-sm'>
       <li class='leading-5'>
@@ -70,7 +70,7 @@ max-w-[1420px] mx-auto px-6'>
   </aside>
 
   <article id='md-content' class='prose dark:prose-invert 
-  w-full max-w-[860px] p-6 mt-12'>
+  w-full max-w-[860px] sm:p-6 mt-12'>
     <!-- Title -->
     <!-- <hgroup>
       <h1 class='!mb-6'>{data.meta.title}</h1>
