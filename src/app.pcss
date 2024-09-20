@@ -73,23 +73,33 @@
     width: 100vw;
 }
 .parallax-group {
+  display: block;
   position: relative;
   transform-style: preserve-3d;
 }
 .parallax-layer {
+  height: max(120vh, 100vw);
+  width: 100vw;
   transform-origin: 50vw 50vh;
-  position: absolute;pointer-events: none;
-  top: 0;right: 0;bottom: 0;left: 0;
+  position: absolute;
+  top: 0;
+  pointer-events: none;
   transform: translateZ(calc(var(--parallax-perspective) * var(--parallax-depth) * -1)) scale(calc(var(--parallax-depth) + 1));
   z-index: calc(10 - var(--parallax-depth, 0));
 }
 .parallax-blend {
   background-image: linear-gradient(to bottom, #0000, hsl(var(--background)) 80%);
-  top: auto;bottom: -1px;
+  top: auto;
+  bottom: -1px;
   height: min(100vh, 100vw);
+  z-index: 11;
 }
 .sticky-content {
-  position: sticky;top: 0;height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   margin-bottom: -100vh;
-  display: flex;align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
+  z-index: 10;
 }

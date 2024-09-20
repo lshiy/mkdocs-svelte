@@ -3,6 +3,10 @@
 	import Header from "$lib/components/app/Header.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import config from "$lib/config";
+	import { uaparser } from "$lib/responsive";
+
+  let isSafari = false;
+  $: isSafari = ($uaparser.browser?.name?.indexOf('Safari')??-1)>=0;
 </script>
 
 <svelte:head>
@@ -16,7 +20,8 @@
 <div class="parallax-container">
   <Header isHero={true} />
 
-  <div class='parallax-group h-[140vh] xl:min-h-[1700px] contain-strict'>
+  <div class='parallax-group h-[140vh] lg:min-h-[1700px]'
+  class:contain-strict={!isSafari}>
     <div class="parallax-layer" style="--parallax-depth: 8;--image-position: 70%">
       <img class='max-sm:size-full object-cover' src='/assets/layers/1-landscape@2x.avif' alt='layers' />
     </div>
@@ -41,7 +46,8 @@
     <div class='parallax-layer parallax-blend'></div>
     <div class="sticky-content">
       <div class='w-full container relative py-10 mx-auto'>
-        <div class='w-full max-w-lg flex flex-col shadow-black text-white'>
+        <div class='w-full max-w-lg max-sm:pb-4 
+        flex flex-col shadow-black text-white'>
           <h1 class='text-3xl xl:text-4xl font-bold'>{config.home_title}</h1>
           <p class='lg:text-lg opacity-90 my-4'>{@html config.home_description}</p>
           <div class='flex gap-4 mt-1'>
