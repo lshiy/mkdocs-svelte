@@ -1,9 +1,7 @@
 ---
-template: home.html
-title: Material for MkDocs
-social:
-  cards_layout_options:
-    title: Documentation that simply works
+title: Mkdocs Svelte
+published: false
+date: 2024-09-20 12:48:00
 ---
 
-Welcome to Material for MkDocs.
+# Mkdocs Svelte

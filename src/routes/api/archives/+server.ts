@@ -3,11 +3,11 @@ import { json } from '@sveltejs/kit'
 async function getList() {
 	let posts: Docs.Model[] = [];
 
-	const paths = import.meta.glob('/src/routes/**/*.md', { eager: true });
+	const paths = import.meta.glob('/src/docs/**/*.md', { eager: true });
 
 	for (const path in paths) {
 		const file = paths[path];
-    const relativePath = path.replace(/^\/src\/routes\//, '').replace(/\.md$/, '');
+    const relativePath = path.replace(/^\/src\/docs\//, '').replace(/\.md$/, '');
 		const slug = path.split('/').at(-1)?.replace('.md', '');
 
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {

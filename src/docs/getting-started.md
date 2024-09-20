@@ -1,182 +1,89 @@
 ---
-title: Getting started
+title: 快速开始
+published: true
+date: 2024-09-20 12:48:00
 ---
 
+# 快速开始
 
-# Getting started
+Mkdocs Svelte 是基于 SvelteKit 的文档站点生成器，其灵感来自 mkdocs-material。它使用 mdsvex 进行 Markdown 渲染，允许在文档中无缝集成 Svelte 组件，提供更灵活、更强大的文档编写体验。
 
-Material for MkDocs is a powerful documentation framework on top of [MkDocs],
-a static site generator for project documentation.[^1] If you're familiar with
-Python, you can install Material for MkDocs with [`pip`][pip], the Python
-package manager. If not, we recommend using [`docker`][docker].
+## 安装
 
-  [^1]:
-    In 2016, Material for MkDocs started out as a simple theme for MkDocs, but
-    over the course of several years, it's now much more than that – with the
-    many built-in plugins, settings, and countless customization abilities,
-    Material for MkDocs is now one of the simplest and most powerful frameworks
-    for creating documentation for your project.
+要开始使用 Mkdocs Svelte，请按照以下步骤操作：
 
-  [MkDocs]: https://www.mkdocs.org
-  [pip]: #with-pip
-  [docker]: #with-docker
+1. 克隆版本库：
 
-## Installation
-
-### with pip <small>recommended</small> 
-
-Material for MkDocs is published as a [Python package] and can be installed with
-`pip`, ideally by using a [virtual environment]. Open up a terminal and install
-Material for MkDocs with:
-
-=== "Latest"
-
-``` sh
-pip install mkdocs-material
+```bash
+git clone https://github.com/lshiy/mkdocs-svelte.git
+cd mkdocs-svelte
 ```
 
-=== "9.x"
+2. 安装依赖项：
 
-``` sh
-pip install mkdocs-material=="9.*" # (1)!
+```bash
+npm install
 ```
 
-1.  Material for MkDocs uses [semantic versioning][^2], which is why it's a
-    good idea to limit upgrades to the current major version.
+3. 启动开发服务器
 
-    This will make sure that you don't accidentally [upgrade to the next
-    major version], which may include breaking changes that silently corrupt
-    your site. Additionally, you can use `pip freeze` to create a lockfile,
-    so builds are reproducible at all times:
-
-```
-pip freeze > requirements.txt
+```bash
+npm run dev
 ```
 
-    Now, the lockfile can be used for installation:
+您的网站现在应该运行在 `http://localhost:5173`。
 
-```
-pip install -r requirements.txt
-```
+## 配置
 
-  [^2]:
-    Note that improvements of existing features are sometimes released as
-    patch releases, like for example improved rendering of content tabs, as
-    they're not considered to be new features.
+Mkdocs Svelte 站点的主要配置文件是 `mkdocs.yaml`。您可以在此设置网站的各种选项：
 
-This will automatically install compatible versions of all dependencies:
-[MkDocs], [Markdown], [Pygments] and [Python Markdown Extensions]. Material for
-MkDocs always strives to support the latest versions, so there's no need to
-install those packages separately.
+```yaml:mkdocs.yaml
+# Project information
+site_name: Mkdocs Svelte
+site_url: https://mkdocs-svelte.gxzv.com
+site_author: JU Chengren
 
----
+# Repository
+repo_name: lshiy/mkdocs-svelte
+repo_url: https://github.com/lshiy/mkdocs-svelte
 
-:fontawesome-brands-youtube:
-__[How to set up Material for MkDocs]__ by @james-willett – :octicons-clock-24:
-15m – Learn how to create and host a documentation site using Material for
-MkDocs on GitHub Pages in a step-by-step guide.
-
-  [How to set up Material for MkDocs]: https://www.youtube.com/watch?v=Q-YA_dA8C20
-
----
-
-!!! tip
-
-    If you don't have prior experience with Python, we recommend reading
-    [Using Python's pip to Manage Your Projects' Dependencies], which is a
-    really good introduction on the mechanics of Python package management and
-    helps you troubleshoot if you run into errors.
-
-  [Python package]: https://pypi.org/project/mkdocs-material/
-  [virtual environment]: https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment
-  [semantic versioning]: https://semver.org/
-  [upgrade to the next major version]: upgrade.md
-  [Markdown]: https://python-markdown.github.io/
-  [Pygments]: https://pygments.org/
-  [Python Markdown Extensions]: https://facelessuser.github.io/pymdown-extensions/
-  [Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
-
-### with docker
-
-The official [Docker image] is a great way to get up and running in a few
-minutes, as it comes with all dependencies pre-installed. Open up a terminal
-and pull the image with:
-
-=== "Latest"
-
-```
-docker pull squidfunk/mkdocs-material
+# Home
+home_title: 文档从未如此简单
+home_description: ...
 ```
 
-=== "9.x"
+根据项目需要自定义这些设置。
 
-```
-docker pull squidfunk/mkdocs-material:9
-```
+## 添加内容
 
-The `mkdocs` executable is provided as an entry point and `serve` is the
-default command. If you're not familiar with Docker don't worry, we have you
-covered in the following sections.
+1. 在 `src/docs` 目录中创建新的 Markdown 文件。
+2. 在 `mkdocs.yaml` 中的导航中添加新页面：
 
-The following plugins are bundled with the Docker image:
-
-- [mkdocs-minify-plugin]
-- [mkdocs-redirects]
-
-  [Docker image]: https://hub.docker.com/r/squidfunk/mkdocs-material/
-  [mkdocs-minify-plugin]: https://github.com/byrnereese/mkdocs-minify-plugin
-  [mkdocs-redirects]: https://github.com/datarobot/mkdocs-redirects
-
-??? question "How to add plugins to the Docker image?"
-
-    Material for MkDocs only bundles selected plugins in order to keep the size
-    of the official image small. If the plugin you want to use is not included,
-    you can add them easily:
-
-    === "Material for MkDocs"
-
-        Create a `Dockerfile` and extend the official image:
-
-``` Dockerfile title="Dockerfile"
-FROM squidfunk/mkdocs-material
-RUN pip install mkdocs-macros-plugin
-RUN pip install mkdocs-glightbox
+```yaml:mkdocs.yaml
+nav:
+  - 主页: /
+  - 快速开始:
+    - 安装: getting-started.md
 ```
 
-    === "Insiders"
+3. 得益于 mdsvex 集成，您可以直接在 Markdown 文件中使用 Svelte 组件。
 
-        Clone or fork the Insiders repository, and create a file called
-        `user-requirements.txt` in the root of the repository. Then, add the
-        plugins that should be installed to the file, e.g.:
+## 为生产而构建
 
-``` txt title="user-requirements.txt"
-mkdocs-macros-plugin
-mkdocs-glightbox
+要为生产构建网站，请运行
+
+```bash
+npm run build
 ```
 
-    Next, build the image with the following command:
+这将在 `.zeabur/output` 目录中生成网站所需文件。若要查看运行效果，请执行
 
-```
-docker build -t squidfunk/mkdocs-material .
-```
-
-    The new image will have additional packages installed and can be used
-    exactly like the official image.
-
-### with git
-
-Material for MkDocs can be directly used from [GitHub] by cloning the
-repository into a subfolder of your project root which might be useful if you
-want to use the very latest version:
-
-```
-git clone https://github.com/squidfunk/mkdocs-material.git
+```bash
+npm run preview
 ```
 
-Next, install the theme and its dependencies with:
+## 部署
 
-```
-pip install -e mkdocs-material
-```
+Mkdocs Svelte 支持并推荐使用无服务器（Serverless）部署。
 
-  [GitHub]: https://github.com/squidfunk/mkdocs-material
+您可以将网站部署到 Zeabur、Vercel、Netlify 等平台或任何其他支持 SvelteKit 应用程序的服务。

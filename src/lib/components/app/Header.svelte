@@ -23,7 +23,7 @@
 <header class={cn('', isHero ? 'absolute top-0 left-0 w-full z-[999]' : 'bg-secondary')}>
   <nav class='max-w-full lg:max-w-[1420px] overflow-hidden 
   mx-auto py-3 px-6'>
-    <ul class='flex font-light gap-6 text-[0.92rem]'>
+    <ul class='flex font-light gap-8 text-[0.92rem]'>
       {#each nav as item(item.key)}
       <li class='opacity-85 hover:opacity-100 transition-opacity'>
         <a href={getHref(item)}>{item.key}</a>

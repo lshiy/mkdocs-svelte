@@ -1,4 +1,5 @@
 <script lang='ts'>
+	import Footer from "$lib/components/app/Footer.svelte";
 	import Header from "$lib/components/app/Header.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import config from "$lib/config";
@@ -90,11 +91,6 @@
 
 
   <div class='parallax-group bg-background border-t'>
-    <footer class='container p-8'>
-      <div class='flex flex-col items-center'>
-        <p class='text-sm opacity-80'>© 2024 {config.site_name}</p>
-        <p class='text-sm opacity-80'>由<a class='hover:opacity-80' href='https://gxzv.com' target='_blank'>小蔗</a>用 ❤ 制作</p>
-      </div>
-    </footer>
+    <Footer />
   </div>
 </div>

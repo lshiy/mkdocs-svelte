@@ -10,6 +10,7 @@
 	import Sidebar from "./(components)/Sidebar.svelte";
 	import Sidenav from "./(components)/Sidenav.svelte";
 	import Header from '$lib/components/app/Header.svelte';
+	import Footer from '$lib/components/app/Footer.svelte';
 	export let data:PageData;
 
   browser && console.log(nav);
@@ -91,7 +92,12 @@ max-w-[1420px] mx-auto px-6'>
     <!-- <Markdown content={content} /> -->
   </article>
 
-  <aside class='max-xl:hidden w-full max-w-[280px] pt-10'>
+  <aside class='max-xl:hidden w-full max-w-[280px] pl-6 pt-10'>
     <Sidenav routeId='{data.path}.md' />
   </aside>
 </main>
+
+
+<div class='bg-background border-t mt-8'>
+  <Footer />
+</div>

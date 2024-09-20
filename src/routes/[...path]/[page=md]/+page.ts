@@ -3,8 +3,8 @@ import { error } from '@sveltejs/kit';
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
   let post:any;
-  let path = params.path ? (params.path+'/'+params.page) : params.page;
-  path = path.replace(/.md$/, '');
+  let originalPath = params.path ? (params.path+'/'+params.page) : params.page;
+  let path = originalPath.replace(/.md$/, '');
   //console.log('path:', path);
 
 	try {
@@ -13,7 +13,7 @@ export async function load({ params }) {
     path = resp.path;
 	} catch (e) {
     console.error(e);
-		error(404, `Could not find ${path}`);
+		error(404, `Could not find ${originalPath}`);
 	}
 
   let data:any = {
@@ -21,6 +21,9 @@ export async function load({ params }) {
     meta: post.metadata,
     path: path
   };
+  if(!data.meta.published){
+    error(404, `Could not find ${originalPath}`);
+  }
 
   let relates:any[] = [];
   if(data.meta?.relates){
