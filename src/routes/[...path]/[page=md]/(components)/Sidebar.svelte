@@ -16,15 +16,20 @@
       // console.log(`key: ${key}, `, 'value: ', value);
 
       if (node.value && route.startsWith(node.value)) {
+        node.unfold = true;
         return node;
       } else if (Array.isArray(node.children)) {
         if (node.children.some((item) => item.value && route.startsWith(item.value))) {
+          node.unfold = true;
           return node;
         }
         for (const subNode of node.children) {
           if (typeof subNode === 'object') {
             const found = findRelevantNode([subNode], route);
-            if (found) return node;
+            if (found) {
+              node.unfold = true;
+              return node;
+            }
           }
         }
       }

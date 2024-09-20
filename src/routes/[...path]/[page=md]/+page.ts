@@ -21,7 +21,7 @@ export async function load({ params }) {
     meta: post.metadata,
     path: path
   };
-  if(!data.meta.published){
+  if(data.meta?.published===false){
     error(404, `Could not find ${originalPath}`);
   }
 

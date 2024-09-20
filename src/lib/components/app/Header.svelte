@@ -7,7 +7,12 @@
     let href = item.value;
     
     if (!href && item.children && item.children.length > 0) {
-      href = item.children[0].value;
+      let child = item.children[0];
+      href = child.value;
+
+      if(!href && child.children && child.children.length > 0){
+        href = getHref(child.children[0]) as (string);
+      }
     }
     
     if (href) {

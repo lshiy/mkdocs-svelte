@@ -21,7 +21,8 @@
   <Header isHero={true} />
 
   <div class='parallax-group h-[140vh] lg:min-h-[1700px]'
-  class:contain-strict={!isSafari}>
+  class:contain-strict={!isSafari}
+  class:contain-layout={isSafari}>
     <div class="parallax-layer" style="--parallax-depth: 8;--image-position: 70%">
       <img class='max-sm:size-full object-cover' src='/assets/layers/1-landscape@2x.avif' alt='layers' />
     </div>
