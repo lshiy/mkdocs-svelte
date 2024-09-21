@@ -8,6 +8,18 @@ date: 2024-09-20 12:48:00
 
 Mkdocs Svelte 是基于 SvelteKit 的文档站点生成器，其灵感来自 mkdocs-material。它使用 mdsvex 进行 Markdown 渲染，允许在文档中无缝集成 Svelte 组件，提供更灵活、更强大的文档编写体验。
 
+
+
+## 功能
+
+- 基于 SvelteKit 构建
+- 支持在文档中无缝集成 Svelte 组件
+- 支持跨平台，适用于所有设备
+- 支持 Serverless 部署
+- 快速且轻量
+
+
+
 ## 安装
 
 要开始使用 Mkdocs Svelte，请按照以下步骤操作：
@@ -31,7 +43,9 @@ npm install
 npm run dev
 ```
 
-您的网站现在应该运行在 `http://localhost:5173`。
+您的网站现在应该运行在 `http://localhost:5184`。
+
+
 
 ## 配置
 
@@ -54,6 +68,8 @@ home_description: ...
 
 根据项目需要自定义这些设置。
 
+
+
 ## 添加内容
 
 1. 在 `src/docs` 目录中创建新的 Markdown 文件。
@@ -64,9 +80,14 @@ nav:
   - 主页: /
   - 快速开始:
     - 安装: getting-started.md
+  - 示例博客:
+    - 人格九道:
+      - 一封信: blog/a-letter.md
 ```
 
 3. 得益于 mdsvex 集成，您可以直接在 Markdown 文件中使用 Svelte 组件。
+
+
 
 ## 为生产而构建
 
@@ -81,6 +102,8 @@ npm run build
 ```bash
 npm run preview
 ```
+
+
 
 ## 部署
 
